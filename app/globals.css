@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+
+body { background: #fafaf7; color: #1b2a41; }
+
+/* Signature: measured weight ruler */
+.ruler {
+  position: relative;
+  height: 10px;
+  background: repeating-linear-gradient(to right, transparent 0, transparent 9px, #e3e2da 9px, #e3e2da 10px);
+  border: 1px solid #e3e2da;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.ruler-fill { position: absolute; inset: 0 auto 0 0; background: #e8a33d; }
+.ruler-mastery { position: absolute; inset: 0 auto 0 0; background: #2e7d5b; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+.card-flip { perspective: 1000px; }
+.card-inner { transition: transform 0.45s; transform-style: preserve-3d; position: relative; }
+.card-inner.flipped { transform: rotateY(180deg); }
+.card-face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.card-back { transform: rotateY(180deg); }
